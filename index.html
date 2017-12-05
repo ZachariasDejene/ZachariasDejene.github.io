@@ -46,8 +46,10 @@ $(document).ready(function() {
     if(result) {
       var verb = result[1];
       var arg = result[2];
+      var check = $(this)[0];
 
       console.log("verb: " + verb + ", args: " + arg)
+      console.log("unknown:" + check);
 
       switch(verb) {
         case "click":
