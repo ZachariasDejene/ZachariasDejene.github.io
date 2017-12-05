@@ -30,6 +30,9 @@ $(document).ready(function() {
  $("#commandbutton").click(function() {
     $("#command").val(final_transcript);
 
+    var potentialcommand = $("#command").val();
+
+
     console.log($("#command").val(final_transcript));
 
     var re = /^(click|scroll|enter)\s(.*)/i;
@@ -42,7 +45,7 @@ $(document).ready(function() {
 
     if(result) {
       var verb = result[1];
-      var arg = result[2]
+      var arg = result[2];
 
       console.log("verb: " + verb + ", args: " + arg)
 
