@@ -46,7 +46,7 @@ $(document).ready(function() {
     if(result) {
       var verb = result[1];
       var arg = result[2];
-      var stringpieces = arg.split(/\s/);
+      var words = arg.split(/\s/);
       var check = false;
       var currRead = $(this)[0];
       var currReadId = $(this)[0].id;
@@ -57,7 +57,7 @@ $(document).ready(function() {
       console.log("verb: " + verb + ", args: " + arg)
 
       switch(verb) {
-        case "click":
+        case "Click":
           // what do we do if click?
           console.log("handling click")
 
@@ -66,7 +66,7 @@ $(document).ready(function() {
           $("a,input,button").each(function() {
             if($(this)[0].tagName == "INPUT") {
                 // look for the text in INPUT fields
-                stringpieces.forEach(function(a){
+                words.forEach(function(a){
 
                   if (currReadId && a && currReadId.toUpperCase() == a.toUpperCase()){
                     console.log("Clicked:" + currReadId);
@@ -88,7 +88,7 @@ $(document).ready(function() {
 
             } else if($(this)[0].tagName == "button") {
 
-                stringpieces.forEach(function(a){
+                words.forEach(function(a){
                   if (currReadId && a && currReadId.toUpperCase() == a.toUpperCase()){
                     console.log("Clicked:" + currReadId);
                     readWords = document.getElementById(currReadId);
@@ -104,7 +104,7 @@ $(document).ready(function() {
               })
             } else if ($(this)[0].tagName == "a"){
 
-                stringpieces.forEach(function(a){
+                words.forEach(function(a){
                   if (currValue && a && currValue.toUpperCase() == a.toUpperCase()){
                     $(this).document.location.href(href);
                     readWords = $(this)[0];
