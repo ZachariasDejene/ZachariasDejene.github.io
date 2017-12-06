@@ -27,6 +27,17 @@ console.log("Accessibility Rocks!");
 
 var readWords = null;
 $(document).ready(function() {
+
+    function Click(element) {
+    if (!element) return;
+    var dispatchEvent = function (elt, name) {
+      var clickEvent = document.createEvent('MouseEvents');
+      clickEvent.initEvent(name, true, true);
+      elt.dispatchEvent(clickEvent);
+    };
+    dispatchEvent(element, 'click');
+  };
+
  $("#commandbutton").click(function() {
     $("#command").val(final_transcript);
 
@@ -66,7 +77,7 @@ $(document).ready(function() {
           $("a,input,button").each(function() {
             if (curr.attr('id') == words[0]){
                 check = true;
-                dispatchEvent(this, 'Click');
+                Click(this);
             }
             if($(this)[0].tagName == "INPUT") {
                 // look for the text in INPUT fields
