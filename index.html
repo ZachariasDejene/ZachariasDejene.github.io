@@ -75,8 +75,9 @@ $(document).ready(function() {
           var words = arg.split(/\s/);
 
           $("a,input,button").each(function() {
-            if (curr.attr('id') == words[0]){
+            if (curr.attr('id').toUpperCase() == words[0].toUpperCase()){
                 check = true;
+                $("#error").text("");
                 Click(this);
             }
             if($(this)[0].tagName == "INPUT") {
