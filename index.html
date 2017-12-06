@@ -46,10 +46,14 @@ $(document).ready(function() {
     if(result) {
       var verb = result[1];
       var arg = result[2];
-      var check = $(this)[0];
+      var stringpieces = arg.split(/\s/);
+      var check = false;
+      var currRead = $(this)[0];
+      var currReadId = $(this)[0].id;
+      var currValue = $(this)[0].value;
 
-      console.log("verb: " + verb + ", args: " + arg + ", unknown:" + check)
-      console.log("unknown:" + check);
+
+      console.log("verb: " + verb + ", args: " + arg)
 
       switch(verb) {
         case "click":
@@ -58,30 +62,79 @@ $(document).ready(function() {
 
           //console.log($("*:contains('" + arg + "')"));
 
-          var stringpieces = arg.split(/\s/);
-
           $("a,input,button").each(function() {
             if($(this)[0].tagName == "INPUT") {
                 // look for the text in INPUT fields
-            } //else if() {
+                stringpieces.forEach(function(a){
 
-            //}
+                  if (currReadId && a && currReadId.toUpperCase() == a.toUpperCase()){
+                    console.log("Clicked:" + currReadId);
+                    readWords = document.getElementById(currReadId);
+                    console.log("Read Words:" + readWords.id);
+                    check = true;
+
+                  }
+                  if (currValue && a && currValue.toUpperCase() == a.toUpperCase()){
+                    $(currRead).click();
+                    check = true;
+                  }
+
+
+                });
+                if (b == false){
+                  alert("Error: False Input");
+                }
+
+            } else if($(this)[0].tagName == "button") {
+
+                stringpieces.forEach(function(a){
+                  if (currReadId && a && currReadId.toUpperCase() == a.toUpperCase()){
+                    console.log("Clicked:" + currReadId);
+                    readWords = document.getElementById(currReadId);
+                    console.log("Read Words:" + readWords.id);
+                    check = true;
+
+                  }
+                  if (currValue && a && currValue.toUpperCase() == a.toUpperCase()){
+                    $(currRead).click();
+                    readWords = $(this)[0];
+                    check = true;
+                  }
+              })
+            } else {
+                alert("Error: False Input");
+            }
           })
 
           break;
         case "scroll":
           // what do we do on scroll?
-          console.log("handling scroll`")
+          console.log("handling scroll`");
+          console.log("Scroll " + result[1]);
+            if(result[1]=="up") {
+               //scroll up
+               $('html, body').animate({ scrollTop: $(document).scrollTop() - 400}, 900);
+            } else if(result[1]=="down") {
+              // scroll down
+               $('html, body').animate({ scrollTop: $(document).scrollTop() + 400}, 900);
+          }
           break;
         case "enter":
           // what do we do on enter?
           console.log("handling enter")
+          console.log("Entered Location:" + readWords.id);
+          console.log("text:" + readWords.value);
+          if (readWords.tagName == "INPUT"){
+            $(readWords).val(arg);
+          }else {
+            alert("Error: Cannot read text")
+          }
           break;
         default:
-          console.log("sorry, that is not a recognized command")
+          console.log("sorry, that is not a recognized command");
+          alert("sorry, that is not a recognized command");
+
       }
-
-
       //console.log("Scroll " + result[1]);
       //if(result[1]=="up") {
         // scroll up
