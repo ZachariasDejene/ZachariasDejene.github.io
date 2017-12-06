@@ -51,6 +51,7 @@ $(document).ready(function() {
       var currRead = $(this)[0];
       var currReadId = $(this)[0].id;
       var currValue = $(this)[0].value;
+      var href = $(this)[0].getAttribute("href")
 
 
       console.log("verb: " + verb + ", args: " + arg)
@@ -101,6 +102,16 @@ $(document).ready(function() {
                     check = true;
                   }
               })
+            } else if {
+
+                stringpieces.forEach(function(a){
+                  if (currValue && a && currValue.toUpperCase() == a.toUpperCase()){
+                    $(this).document.location.href(href);
+                    readWords = $(this)[0];
+                    check = true;
+                  }
+                })
+
             } else {
                 alert("Error: False Input");
             }
