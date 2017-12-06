@@ -46,8 +46,7 @@ $(document).ready(function() {
     if(result) {
       var verb = result[1];
       var arg = result[2];
-      var words = arg.split(/\s/);
-      var check = false;
+      var curr = $(this);
       var currRead = $(this)[0];
       var currReadId = $(this)[0].id;
       var currValue = $(this)[0].value;
@@ -60,10 +59,15 @@ $(document).ready(function() {
         case "Click":
           // what do we do if click?
           console.log("handling click")
-
+          var check = false;
           //console.log($("*:contains('" + arg + "')"));
+          var words = arg.split(/\s/);
 
           $("a,input,button").each(function() {
+            if (curr.attr('id') == words[0]){
+                check = true;
+                dispatchEvent(this, 'Click');
+            }
             if($(this)[0].tagName == "INPUT") {
                 // look for the text in INPUT fields
                 words.forEach(function(a){
