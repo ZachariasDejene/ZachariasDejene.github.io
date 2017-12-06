@@ -68,14 +68,14 @@ $(document).ready(function() {
                 // look for the text in INPUT fields
                 words.forEach(function(a){
 
-                  if (currReadId && a && currReadId.toUpperCase() == a.toUpperCase()){
+                  if (currReadId.toUpperCase() == a.toUpperCase()){
                     console.log("Clicked:" + currReadId);
                     readWords = document.getElementById(currReadId);
                     console.log("Read Words:" + readWords.id);
                     check = true;
 
                   }
-                  if (currValue && a && currValue.toUpperCase() == a.toUpperCase()){
+                  if (currValue.toUpperCase() == a.toUpperCase()){
                     $(currRead).click();
                     check = true;
                   }
@@ -89,14 +89,14 @@ $(document).ready(function() {
             } else if($(this)[0].tagName == "button") {
 
                 words.forEach(function(a){
-                  if (currReadId && a && currReadId.toUpperCase() == a.toUpperCase()){
+                  if (currReadId.toUpperCase() == a.toUpperCase()){
                     console.log("Clicked:" + currReadId);
                     readWords = document.getElementById(currReadId);
                     console.log("Read Words:" + readWords.id);
                     check = true;
 
                   }
-                  if (currValue && a && currValue.toUpperCase() == a.toUpperCase()){
+                  if (currValue.toUpperCase() == a.toUpperCase()){
                     $(currRead).click();
                     readWords = $(this)[0];
                     check = true;
@@ -105,7 +105,7 @@ $(document).ready(function() {
             } else if ($(this)[0].tagName == "a"){
 
                 words.forEach(function(a){
-                  if (currValue && a && currValue.toUpperCase() == a.toUpperCase()){
+                  if (currValue.toUpperCase() == a.toUpperCase()){
                     $(this).document.location.href(href);
                     readWords = $(this)[0];
                     check = true;
