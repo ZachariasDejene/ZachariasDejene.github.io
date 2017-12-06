@@ -126,13 +126,14 @@ $(document).ready(function() {
           console.log("text:" + readWords.value);
           if (readWords.tagName == "INPUT"){
             $(readWords).val(arg);
+            check = true;
           }else {
             alert("Error: Cannot read text")
           }
           break;
         default:
-          console.log("sorry, that is not a recognized command");
-          alert("sorry, that is not a recognized command");
+          //console.log("sorry, that is not a recognized command");
+         // alert("sorry, that is not a recognized command");
 
       }
       //console.log("Scroll " + result[1]);
