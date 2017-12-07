@@ -137,7 +137,7 @@ $(document).ready(function() {
 
                 words.forEach(function(a){
                   if (currValue.toUpperCase() == a.toUpperCase()){
-                    $(this).document.location.href(href);
+                    this.document.location.href(href);
                     readWords = $(this)[0];
                     check = true;
                   }
