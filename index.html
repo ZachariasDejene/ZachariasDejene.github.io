@@ -28,7 +28,9 @@ console.log("Accessibility Rocks!");
 var readWords = null;
 $(document).ready(function() {
  $("#commandbutton").click(function() {
-    $("#command").val(final_transcript);
+  if (final_transcript){
+      $("#command").val(final_transcript);
+  }
 
     var potentialcommand = $("#command").val();
 
