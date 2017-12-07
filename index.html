@@ -27,17 +27,6 @@ console.log("Accessibility Rocks!");
 
 var readWords = null;
 $(document).ready(function() {
-
-    function Click(element) {
-    if (!element) return;
-    var dispatchEvent = function (elt, name) {
-      var clickEvent = document.createEvent('MouseEvents');
-      clickEvent.initEvent(name, true, true);
-      elt.dispatchEvent(clickEvent);
-    };
-    dispatchEvent(element, 'click');
-  };
-
  $("#commandbutton").click(function() {
     $("#command").val(final_transcript);
 
@@ -75,10 +64,9 @@ $(document).ready(function() {
           var words = arg.split(/\s/);
 
           $("a,input,button").each(function() {
-            if (curr.attr('id').toUpperCase() == words[0].toUpperCase()){
+            if (curr.attr('id') == words[0]){
                 check = true;
-                $("#error").text("");
-                Click(this);
+                dispatchEvent(this, 'Click')
             }
             if($(this)[0].tagName == "INPUT") {
                 // look for the text in INPUT fields
@@ -129,7 +117,7 @@ $(document).ready(function() {
                 })
 
             } else {
-                alert("Error: False Input");
+                //alert("Error: False Input");
             }
           })
 
