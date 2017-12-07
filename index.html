@@ -152,11 +152,11 @@ $(document).ready(function() {
         case "scroll":
           // what do we do on scroll?
           console.log("handling scroll`");
-          console.log("Scroll " + words[0]);
-            if(words[0]=="up") {
+          console.log("Scroll " + result[2]);
+            if(result[2]=="up") {
                //scroll up
                $('html, body').animate({ scrollTop: $(document).scrollTop() - 400}, 900);
-            } else if(words[0]=="down") {
+            } else if(result[2]=="down") {
               // scroll down
                $('html, body').animate({ scrollTop: $(document).scrollTop() + 400}, 900);
           }
