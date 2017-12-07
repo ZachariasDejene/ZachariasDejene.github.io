@@ -108,7 +108,7 @@ $(document).ready(function() {
               }
                 
 
-             else if($(this)[0].tagName == "button") {
+             else if($(this)[0].tagName.toLowerCase() == "button") {
 
                 words.forEach(function(a){
                   if (currReadId.toUpperCase() == a.toUpperCase()){
@@ -124,7 +124,7 @@ $(document).ready(function() {
                     check = true;
                   }
               });
-            } else if ($(this)[0].tagName == "a"){
+            } else if ($(this)[0].tagName.toLowerCase() == "a"){
 
                 currRead = $(this)[0];
                 currReadId = $(this)[0].id;
