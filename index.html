@@ -66,7 +66,7 @@ $(document).ready(function() {
           var words = arg.split(/\s/);
           console.log("verb: [" + verb + "]")
           console.log("Words:" + words);
-          console.log("currValue:" + currValue)
+          
           $("a,input,button").each(function() {
 
             currRead = $(this)[0];
@@ -74,6 +74,8 @@ $(document).ready(function() {
             currValue = $(this)[0].value;
             href = $(this)[0].getAttribute("href")
 
+            console.log("currValue:" + currValue)
+            
             if (curr.attr('id') == words[0]){
                 check = true;
                 dispatchEvent(this, 'click')
@@ -82,6 +84,7 @@ $(document).ready(function() {
                 // look for the text in INPUT fields
                 words.forEach(function(a){
 
+
                   
 
                   if (currReadId.toUpperCase() == a.toUpperCase()){
@@ -89,6 +92,7 @@ $(document).ready(function() {
                     readWords = document.getElementById(currReadId);
                     console.log("Read Words:" + readWords.id);
                     check = true;
+
 
                   }
                   if (currValue.toUpperCase() == a.toUpperCase()){
