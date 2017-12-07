@@ -87,7 +87,7 @@ $(document).ready(function() {
 
                 });
                 if (check == false){
-                  alert("Error: False Input");
+                  //alert("Error: False Input");
                 }
 
             } else if($(this)[0].tagName == "button") {
@@ -116,7 +116,7 @@ $(document).ready(function() {
                   }
                 })
 
-            } else {
+            } if (check == false) {
                 //alert("Error: False Input");
             }
           })
@@ -142,8 +142,6 @@ $(document).ready(function() {
           if (readWords.tagName == "INPUT"){
             $(readWords).val(arg);
             check = true;
-          }else {
-            alert("Error: Cannot read text")
           }
           break;
         default:
