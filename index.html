@@ -72,7 +72,7 @@ $(document).ready(function() {
             currValue = $(this)[0].value;
             href = $(this)[0].getAttribute("href")
 
-            console.log("currValue:" + currValue)
+
 
             // if (curr.attr('id') == words[0]){
             //     check = true;
@@ -82,6 +82,9 @@ $(document).ready(function() {
                 // look for the text in INPUT fields
 
 
+                   console.log("case input")
+                  console.log("currValue:" + currValue)
+                  
                   if (currReadId.toUpperCase() == a.toUpperCase()){
                     console.log("Clicked:" + currReadId);
                     readWords = document.getElementById(currReadId);
@@ -95,13 +98,14 @@ $(document).ready(function() {
                     check = true;
                   }
 
+                  if (check == false){
+                  //alert("Error: False Input")
+                  }
 
-                });
-                if (check == false){
-                  //alert("Error: False Input");
                 }
+                
 
-            } else if($(this)[0].tagName == "button") {
+             else if($(this)[0].tagName == "button") {
 
                 words.forEach(function(a){
                   if (currReadId.toUpperCase() == a.toUpperCase()){
@@ -119,6 +123,14 @@ $(document).ready(function() {
               })
             } else if ($(this)[0].tagName == "a"){
 
+                currRead = $(this)[0];
+                currReadId = $(this)[0].id;
+                currValue = $(this)[0].value;
+                href = $(this)[0].getAttribute("href")
+
+                console.log("case a")
+                console.log("currValue:" + currValue)
+
                 words.forEach(function(a){
                   if (currValue.toUpperCase() == a.toUpperCase()){
                     $(this).document.location.href(href);
@@ -130,7 +142,7 @@ $(document).ready(function() {
             } if (check == false) {
                 //alert("Error: False Input");
             }
-          })
+          });
 
           break;
         case "scroll":
