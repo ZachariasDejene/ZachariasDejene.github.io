@@ -64,15 +64,19 @@ $(document).ready(function() {
           var check = false;
           //console.log($("*:contains('" + arg + "')"));
           var words = arg.split(/\s/);
+          console.log("verb: [" + verb + "]")
           console.log("Words:" + words);
+          console.log("currValue:" + currValue)
           $("a,input,button").each(function() {
             if (curr.attr('id') == words[0]){
                 check = true;
-                dispatchEvent(this, 'Click')
+                dispatchEvent(this, 'click')
             }
             if($(this)[0].tagName == "INPUT") {
                 // look for the text in INPUT fields
                 words.forEach(function(a){
+
+                  
 
                   if (currReadId.toUpperCase() == a.toUpperCase()){
                     console.log("Clicked:" + currReadId);
