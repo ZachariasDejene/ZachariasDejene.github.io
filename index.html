@@ -68,6 +68,12 @@ $(document).ready(function() {
           console.log("Words:" + words);
           console.log("currValue:" + currValue)
           $("a,input,button").each(function() {
+
+            currRead = $(this)[0];
+            currReadId = $(this)[0].id;
+            currValue = $(this)[0].value;
+            href = $(this)[0].getAttribute("href")
+
             if (curr.attr('id') == words[0]){
                 check = true;
                 dispatchEvent(this, 'click')
