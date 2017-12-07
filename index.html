@@ -62,7 +62,7 @@ $(document).ready(function() {
           var check = false;
           //console.log($("*:contains('" + arg + "')"));
           var words = arg.split(/\s/);
-
+          console.log("Words:" + words);
           $("a,input,button").each(function() {
             if (curr.attr('id') == words[0]){
                 check = true;
