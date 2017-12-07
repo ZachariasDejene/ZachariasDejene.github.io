@@ -85,6 +85,7 @@ $(document).ready(function() {
                    console.log("case input osidufoidu")
                   console.log("currValue:" + currValue)
 
+                  words.forEach(function(a){
                   if (currReadId.toUpperCase() == a.toUpperCase()){
                     console.log("Clicked:" + currReadId);
                     readWords = document.getElementById(currReadId);
@@ -102,7 +103,8 @@ $(document).ready(function() {
                   //alert("Error: False Input")
                   }
 
-                }
+                });
+              }
                 
 
              else if($(this)[0].tagName == "button") {
@@ -120,7 +122,7 @@ $(document).ready(function() {
                     readWords = $(this)[0];
                     check = true;
                   }
-              })
+              });
             } else if ($(this)[0].tagName == "a"){
 
                 currRead = $(this)[0];
@@ -137,7 +139,7 @@ $(document).ready(function() {
                     readWords = $(this)[0];
                     check = true;
                   }
-                })
+                });
 
             } if (check == false) {
                 //alert("Error: False Input");
