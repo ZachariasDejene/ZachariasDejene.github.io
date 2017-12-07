@@ -37,7 +37,7 @@ $(document).ready(function() {
 
     console.log($("#command").val(final_transcript));
 
-    var re = /^(Click|scroll|enter)\s(.*)/i;
+    var re = /^(click|scroll|enter)\s(.*)/i;
     var result = re.exec(potentialcommand);
 
   if(readWords){
@@ -46,7 +46,7 @@ $(document).ready(function() {
 
 
     if(result) {
-      var verb = result[1];
+      var verb = result[1].toLowerCase();
       var arg = result[2];
       var curr = $(this);
       var currRead = $(this)[0];
@@ -58,7 +58,7 @@ $(document).ready(function() {
       console.log("verb: " + verb + ", args: " + arg)
 
       switch(verb) {
-        case "Click":
+        case "click":
           // what do we do if click?
           console.log("handling click")
           var check = false;
